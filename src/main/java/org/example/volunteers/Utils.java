@@ -13,7 +13,7 @@ public class Utils {
     public static String conversionTel(String tel){
         if (tel == null)
         {
-            return null;
+            return "";
         }
         tel = tel.replaceAll("[^0-9]", ""); // on retire tous les caractères sauf les chiffres
         if(tel.length() > 6)
@@ -33,7 +33,7 @@ public class Utils {
             }
             return tel.replaceAll("(\\d{2})(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1.$2.$3.$4.$5");
         }
-        return null;
+        return "";
     }
 
     /**
