@@ -19,6 +19,11 @@ public class App {
             personnes.add(new Personne (line));
         }
 
+        //On formate les champs
+        for (Personne per : personnes){
+            per.formater();
+        }
+
         // Apply dark magic here...
 
         System.out.println("Result goes here");
