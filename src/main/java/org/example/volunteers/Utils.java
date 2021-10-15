@@ -5,6 +5,11 @@ import java.util.regex.Pattern;
 
 public class Utils {
 
+    /**
+     * Change le telephone en entrée pour un truc correct
+     * @param tel tel entrée
+     * @return tel correct
+     */
     public static String conversionTel(String tel){
         if (tel == null)
         {
@@ -31,6 +36,11 @@ public class Utils {
         return null;
     }
 
+    /**
+     * Conversion de mail pour check si c'est un mail correct
+     * @param mail mail d'entré
+     * @return mail correct ou null
+     */
     public static String conversionMail(String mail){
         return mail;
     }

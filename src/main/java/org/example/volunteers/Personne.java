@@ -19,7 +19,7 @@ public class Personne {
         prenom = tableau[1];
         pseudo = tableau[2];
         adresseMail = tableau[3];
-        tel = tableau[4];
+        tel = tableau[4]!=null ? tableau[4] : "" ;
     }
 
     /**
@@ -36,9 +36,20 @@ public class Personne {
      * @return si c'est un doublon
      */
     public boolean isDoublon(Personne personne){
-        return (this.tel != null ? this.tel.equals(personne.tel) : false) ||
-                (this.adresseMail != null ? this.adresseMail.equals(personne.adresseMail) : false) ||
-                (this.pseudo != null ? this.pseudo.equals(personne.pseudo) : false) ;
+        // on test uniquement pseudo
+        if (this.pseudo != "" && this.pseudo.equals(personne.pseudo))
+            return true;
+
+        // on test soit email soit tel et nom/prenom egaux
+        if ((this.tel != null ? this.tel.equals(personne.tel) : false) ||
+                (this.adresseMail != null ? this.adresseMail.equals(personne.adresseMail) : false) ) {
+            //On check si le nom/prénom n'ont pas été inversé
+            if ( (this.prenom != "" && (this.prenom.equals(personne.prenom) || this.prenom.equals(personne.nom) ) ) ||
+                    (this.nom != "" && (this.nom.equals(personne.prenom))) )
+                return true;
+        }
+
+        return false;
     }
 
     /**
