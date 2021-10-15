@@ -22,6 +22,15 @@ public class Personne {
         adresseMail = tableau[3];
         tel = tableau[4];
     }
+
+    /**
+     * Va formater les string de la personnes
+     */
+    public void formater(){
+        adresseMail = Utils.conversionMail(adresseMail);
+        tel = Utils.conversionTel(tel);
+    }
+
     /**
      * Regarde si pour un objet donné, l'objet en parametre est un doublon
      * @param personne personne qui est un doublon
