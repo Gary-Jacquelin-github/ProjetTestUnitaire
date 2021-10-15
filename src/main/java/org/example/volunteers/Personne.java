@@ -11,6 +11,10 @@ public class Personne {
 
     public Personne(){}
 
+    /**
+     * Constructeur de base
+     * @param tableau les champs remplis
+     */
     public Personne(String[] tableau){
         nom = tableau[0];
         prenom = tableau[1];

@@ -2,9 +2,7 @@ package org.example.volunteers;
 
 public class Utils {
 
-
-
-    public String conversionTel(String tel){
+    public static String conversionTel(String tel){
         if (tel == null)
         {
             return null;
@@ -30,8 +28,8 @@ public class Utils {
         return null;
     }
 
-    public void conversionMail(String mail){
-
+    public static String conversionMail(String mail){
+        return mail;
     }
 
 }
