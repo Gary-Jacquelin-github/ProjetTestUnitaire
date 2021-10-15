@@ -42,7 +42,14 @@ public class Utils {
      * @return mail correct ou null
      */
     public static String conversionMail(String mail){
-        return mail;
-    }
+        if(mail == null) return null;
+        Pattern patternMail = Pattern.compile("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}");
+        Matcher mat = patternMail.matcher(mail);
 
+        if(mat.matches()){ // Valid mail
+            return mail;
+        }else{ // Invalid mail
+            return "";
+        }
+    }
 }

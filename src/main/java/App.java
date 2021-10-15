@@ -11,15 +11,17 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 
 public class App {
+
     public static void main(String[] args) throws IOException {
         List<String[]> lines = Files.readAllLines(Paths.get("src/main/resources/data.csv"))
-            .stream().map(string -> string.split(";", -1))
-            .collect(toList());
+                .stream().map(string -> string.split(";", -1))
+                .collect(toList());
 
-        //Instantiation des personnes
         List<Personne> personnes = new ArrayList<>();
+        int nbDebut = lines.size();
+        int nbFin = 0;
         for (String[] line : lines) {
-            personnes.add(new Personne (line));
+            personnes.add(new Personne(line));
         }
 
         //On formate les champs
