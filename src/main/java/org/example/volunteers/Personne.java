@@ -1,3 +1,5 @@
+package org.example.volunteers;
+
 import jdk.javadoc.internal.doclets.toolkit.builders.AnnotationTypeOptionalMemberBuilder;
 
 public class Personne {

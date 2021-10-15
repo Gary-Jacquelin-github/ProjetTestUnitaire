@@ -1,9 +1,11 @@
 package org.example.volunteers;
 
+import java.util.List;
+
 public class Utils {
 
-    public void conversionTel(){
-        //parse le tel
+    public void conversionTel(List<Personne>){
+
     }
 
     public void conversionMail(){
