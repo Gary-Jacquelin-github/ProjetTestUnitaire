@@ -21,16 +21,16 @@ public class App {
         }
 
         //On formate les champs
-        for (Personne per : personnes){
-            per.formater();
-        }
+        personnes.forEach(p -> p.formater());
+        System.out.println("nb de base : " + nbDebut);
 
         //On boucle sur tous
         for (int i=0 ; i< personnes.size() ; i++){
             //On check les doublons et on rempli tmtc
             for (int j=0 ; j< personnes.size() ; j++){
                 //On regarde si c'est un doublons
-                if(personnes.get(i).isDoublon(personnes.get(j))){
+                if(i!=j && personnes.get(i).isDoublon(personnes.get(j))){
+                    System.out.println("lui " + personnes.get(j).adresseMail + " est egale à lui :" + personnes.get(i).adresseMail);
                     //On complete le tt
                     personnes.get(i).complete(personnes.get(j));
                     //On le remove pour ne pas repasser dessus et donc enlever les doublons
@@ -40,5 +40,17 @@ public class App {
         }
 
         System.out.println("Result goes here");
+        nbFin = personnes.size();
+        System.out.println("nb de fin : " + nbFin);
+
+        FileWriter writer = new FileWriter(String.valueOf(Paths.get("src/main/resources/data_ok.csv")));
+        personnes.forEach(p -> {
+            try {
+                writer.write(p.nom + ";" + p.prenom + ";" + p.pseudo + ";" + p.adresseMail + ";" + p.tel + "\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        writer.close();
     }
 }
