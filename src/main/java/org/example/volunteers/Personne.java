@@ -1,6 +1,5 @@
 package org.example.volunteers;
 
-import jdk.javadoc.internal.doclets.toolkit.builders.AnnotationTypeOptionalMemberBuilder;
 
 public class Personne {
     public String nom;
@@ -37,7 +36,9 @@ public class Personne {
      * @return si c'est un doublon
      */
     public boolean isDoublon(Personne personne){
-        return this.tel.equals(personne.tel) || this.adresseMail.equals(personne.adresseMail) || this.pseudo.equals(personne.pseudo);
+        return (this.tel != null ? this.tel.equals(personne.tel) : false) ||
+                (this.adresseMail != null ? this.adresseMail.equals(personne.adresseMail) : false) ||
+                (this.pseudo != null ? this.pseudo.equals(personne.pseudo) : false) ;
     }
 
     /**
@@ -45,19 +46,19 @@ public class Personne {
      * @param personne doublon qui doit completer l'objet
      */
     public void complete(Personne personne){
-        if( this.nom.equals("")){
+        if( this.nom==null || this.nom.equals("")){
             this.nom = personne.nom;
         }
-        if( this.prenom.equals("")){
+        if( this.prenom==null || this.prenom.equals("")){
             this.prenom = personne.prenom;
         }
-        if( this.pseudo.equals("")){
+        if( this.pseudo==null || this.pseudo.equals("")){
             this.prenom = personne.prenom;
         }
-        if( this.adresseMail.equals("")){
+        if( this.adresseMail==null || this.adresseMail.equals("")){
             this.adresseMail = personne.adresseMail;
         }
-        if( this.tel.equals("")){
+        if( this.tel==null || this.tel.equals("")){
             this.tel = personne.tel;
         }
     }
