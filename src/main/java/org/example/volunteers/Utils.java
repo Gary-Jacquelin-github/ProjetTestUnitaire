@@ -29,6 +29,9 @@ public class Utils {
             // dans tous les cas on met au format 02.35.63.36.54 ou 06.58.56.54.56 si 0033658565456
             if(tel.length() > 10)
             {
+                if (tel.startsWith("001")){ // Gestion des numéros americains
+                    return tel.replaceAll("(\\d{2})(\\d{1})(\\d{3})(\\d{3})(\\d{4})","$1.$2.$3.$4.$5");
+                }
                 return tel.replaceAll("(\\d{2})(\\d{2})(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1.$2.$3.$4.$5.$6");
             }
             return tel.replaceAll("(\\d{2})(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1.$2.$3.$4.$5");
