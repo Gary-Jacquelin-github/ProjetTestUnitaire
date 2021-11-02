@@ -36,6 +36,7 @@ public class testDoublon {
 
         assertTrue(personneTest.isDoublon(personneTestDeux));
     }
+
     @Test
     public void testDoublonEmail(){
         Personne personneTest = createEmptyPersonne();
@@ -136,7 +137,7 @@ public class testDoublon {
         assertTrue(personneTest.isDoublon(personneTestDeux));
     }
 
-    // Les tests du faux
+    /////////////////// Les tests du faux ///////////////////
     @Test
     public void testDoublonPseudoFalse(){
         Personne personneTest = createEmptyPersonne();
